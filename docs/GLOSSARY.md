@@ -71,3 +71,18 @@ Plain definitions of the terms you will see in this project. Copy this file into
 **Vintage.** The year or edition of a data source.
 
 **Zenodo.** A free, permanent research archive run by CERN. It gives your project a DOI.
+
+## Terms specific to irAE-Map
+
+**Code family.** A diagnosis code plus its more detailed child codes, which usually differ only by body site, side, or visit type. You decide once per family; the published file lists every child code.
+**Companion code.** A second diagnosis code that says a drug caused the condition. For immunotherapy, T45.AX5- (since October 1, 2024) or T45.1X5- (before).
+**Crosswalk.** A table that links the same idea across different coding systems, like a translation dictionary.
+**CTCAE (Common Terminology Criteria for Adverse Events).** The National Cancer Institute's list of side-effect names and how to grade their severity from 1 (mild) to 5 (death). Version 6.0 was released in 2026.
+**FAERS (FDA Adverse Event Reporting System).** The FDA's database of side-effect reports sent in by doctors, patients and drug companies. openFDA is the free public website for searching it.
+**ICD-10-CM.** The US list of diagnosis codes used in medical records and billing. It is updated every October 1; the current edition is called FY2027.
+**Immune checkpoint inhibitor (ICI).** A type of immunotherapy drug (for example pembrolizumab or nivolumab) that releases the brakes on the immune system so it attacks cancer.
+**irAE (immune-related adverse event).** A side effect of an ICI in which the immune system attacks a healthy organ.
+**Look-alike.** A different condition that is easily mistaken for the side effect (for example an infection that looks like immune colitis). Listed so analysts can rule it out.
+**MedDRA.** The medical dictionary of side-effect terms used by drug regulators and by CTCAE. It is licensed, so irAE-Map publishes term names only, not its internal codes.
+**PRR (proportional reporting ratio).** How much more often a side effect is reported with a drug than with all other drugs. Above 1 means over-represented. It does not measure how often the side effect happens.
+**Role.** What a code does in the table: primary (names the condition), supporting (a symptom or lab result), look-alike (something to rule out), or companion (the drug-cause code).

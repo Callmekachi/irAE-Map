@@ -53,7 +53,7 @@ Claude writes the code and proposes candidate mappings with a suggested reason. 
 |---|---|---|
 | Create accounts (ORCID, GitHub, Zenodo) | Now | 15 min |
 | Answer five setup questions | Now | 10 min |
-| Review and decide the proposed mappings, one organ group at a time | Oct to Nov 2026 | about 30 min per organ group |
+| Review and decide the proposed mappings in the review workbook | Oct to Nov 2026 | about 5 to 7 hours in total, in sittings of 30 to 60 min |
 | Check the results using the checklist | When the draft is ready | 1 to 2 hours |
 | Approve publishing | After checking | 5 min |
 
@@ -66,4 +66,4 @@ Claude writes the code and proposes candidate mappings with a suggested reason. 
 5. **Codebook and rationale document.** Every number in it comes straight from the data.
 6. **Ready for your final check.** You verify, then we publish v1.0 with a DOI.
 
-*You are here: step 1 done, step 2 in progress.*
+*You are here: steps 1 and 2 done. Step 3 (your review) is next.*
