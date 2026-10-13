@@ -79,7 +79,10 @@ def main():
         if len(acc_review):
             problems.append(f"{name}: {len(acc_review)} rows marked 'accept' but had no suggestion to accept "
                             f"(proposed_role = review); choose a role instead, e.g. {acc_review.source_id.head(3).tolist()}")
-        bad_role = d[(d["final_role"] != "") & ~d["final_role"].isin(ROLES | {"exclude", "review"})]
+        split = d[d["final_role"] == "split"]
+        if len(split):
+            problems.append(f"{name}: {len(split)} families marked 'split'; update the rules and rebuild: {split.source_id.tolist()[:10]}")
+        bad_role = d[(d["final_role"] != "") & ~d["final_role"].isin(ROLES | {"exclude", "review", "split"})]
         if len(bad_role):
             problems.append(f"{name}: {len(bad_role)} rows with an unrecognized role: {sorted(set(bad_role.final_role))}")
         d = d[d["final_role"].isin(ROLES) & d["category_id"].isin(keep)]

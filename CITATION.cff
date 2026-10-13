@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use irAE-Map, please cite it as below."
+type: dataset
+title: "irAE-Map: a clinician-curated crosswalk of immune-related adverse events to CTCAE v6.0, ICD-10-CM and FAERS reaction terms"
+version: "1.0.0"
+date-released: "[VERIFY: release date]"
+authors:
+  - family-names: "[VERIFY]"
+    given-names: "Onyekachi"
+    orcid: "https://orcid.org/[VERIFY]"
+    affiliation: "Department of Health Outcomes and Biomedical Informatics, University of Florida"
+license: CC-BY-4.0
+repository-code: "https://github.com/[VERIFY]/irae-map"
+doi: "[VERIFY: 10.5281/zenodo.pending]"
+keywords:
+  - immune-related adverse events
+  - immune checkpoint inhibitors
+  - CTCAE
+  - ICD-10-CM
+  - FAERS
+  - crosswalk
+  - pharmacovigilance
+  - phenotyping

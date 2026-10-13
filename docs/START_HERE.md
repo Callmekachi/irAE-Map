@@ -36,6 +36,7 @@ All sources are free and public. Nothing here needs special permission.
 
 - [ ] **irAE-Map v1.0**, the table itself, on GitHub with a permanent **DOI** from Zenodo (December 2026)
 - [ ] **A codebook and mapping rationale document**, released with v1.0, with its own DOI (December 2026)
+- [ ] **A coverage analysis dataset** showing which CTCAE v6.0 immune-related terms have no specific ICD-10-CM code, with its own DOI (April 2027). This shows coders and the CDC where the code set falls short.
 - [ ] **iraemap v0.1**, a small Python package that applies the table to someone's own codes (GitHub and PyPI, March 2027)
 - [ ] **irAE-Map v2.0**, updated to the FY2028 ICD-10-CM codes (October 2027, after CDC publishes them)
 

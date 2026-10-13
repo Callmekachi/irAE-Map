@@ -47,11 +47,15 @@ OUTPUTS:        data/processed/irae_map_v1.0.csv          (long table)
                 docs/CODEBOOK.md
                 report/irAE-Map_mapping_rationale_v1.0.docx (DOI)
                 CITATION.cff, LICENSE, LICENSE-DATA
+                data/processed/coverage/ctcae_icd10cm_coverage.csv and
+                  coverage_stats.json: which CTCAE v6.0 immune-related terms
+                  lack a specific ICD-10-CM code (code/05_coverage.py)
 
 VENUES:         1. GitHub repository (public), tagged v1.0.0
                 2. Zenodo: dataset DOI (table + codebook), Dec 2026
                 3. Zenodo: rationale document DOI, Dec 2026
-                4. Later: PyPI package iraemap 0.1 (Mar 2027); data descriptor
+                4. Zenodo: coverage analysis dataset DOI, Apr 2027
+                5. Later: PyPI package iraemap 0.1 (Mar 2027); data descriptor
                    paper (e.g., JAMIA Open, Scientific Data) optional
 
 VERIFY POINTS:  a. Category list (keep / merge / drop / add)
@@ -61,6 +65,8 @@ VERIFY POINTS:  a. Category list (keep / merge / drop / add)
                 e. Drug list for FAERS (13 ICIs)
                 f. Confidence scale definitions
                 g. Spot checks in VERIFY_CHECKLIST.md
+                h. Coverage definitions (specific / nonspecific / none) and,
+                   for April 2027, the best ICD-10-CM code per CTCAE term
 
 LICENSE:        Table and documents CC BY 4.0. Code MIT.
 

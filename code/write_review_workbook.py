@@ -14,7 +14,7 @@ YELLOW = PatternFill("solid", fgColor="FFF4C2")
 GREY = PatternFill("solid", fgColor="E8E8E8")
 BOLD = Font(bold=True)
 
-ROLES = "accept,primary,supporting,lookalike,companion,exclude"
+ROLES = "accept,primary,supporting,lookalike,companion,exclude,split"
 CONF = "High,Moderate,Low"
 
 HOW_TO = [
@@ -28,6 +28,7 @@ HOW_TO = [
     ("3. If you did not pick accept, also pick author_confidence and write author_rationale in your own words (one short sentence).", False),
     ("4. Optional: author_lookalike_note for diagnoses that are easily confused with this row.", False),
     ("5. Put your initials in decided_by and the date in decided_on (YYYY-MM-DD).", False),
+    ("If an ICD-10-CM family (a code ending in *) mixes codes that deserve different decisions, choose split and say how in author_rationale. Claude will split it into separate rows on the next rebuild.", False),
     ("", False),
     ("Roles", True),
     ("primary: names the condition itself; enough on its own to identify the irAE category.", False),

@@ -1,0 +1,6 @@
+{
+  "name": "irae-map-docs",
+  "private": true,
+  "description": "Builds the irAE-Map rationale document (code/04_document.js)",
+  "dependencies": { "docx": "^9.7.1" }
+}
