@@ -1,4 +1,4 @@
 date,artifact_or_event,type,venue_or_host,link_or_doi,status,prong_tags,metrics_snapshot,files_saved,notes
 2026-10-13,irAE-Map v1.0.0 dataset (crosswalk table + codebook + release archive),dataset,Zenodo,10.5281/zenodo.23351502,live,,0 downloads at release,,Published after author verification on 2026-10-13; 918 mappings across 36 categories
 2026-10-13,irAE-Map v1.0.0 codebook and mapping rationale,technical note,Zenodo,10.5281/zenodo.23351504,live,,0 downloads at release,,33-page document built from stats.json
-2026-10-13,irAE-Map public repository,code and data,GitHub,https://github.com/Callmekachi/irAE-Map,live,,,,Commit 81cceb3; v1.0.0 release to be created by the author in the GitHub web interface
+2026-10-13,irAE-Map v1.0.0 GitHub release,code and data,GitHub,https://github.com/Callmekachi/irAE-Map/releases/tag/v1.0.0,live,,,,Tag v1.0.0 = commit 81cceb3; archive identical to Zenodo (6267384 bytes); published by the author 2026-10-13
