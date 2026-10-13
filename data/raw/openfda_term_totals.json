@@ -1,0 +1,582 @@
+{
+ "ACUTE HEPATIC FAILURE": {
+  "all": 13422,
+  "ici": 259
+ },
+ "ADDISON^S DISEASE": {
+  "all": 987,
+  "ici": 144
+ },
+ "ADRENAL DISORDER": {
+  "all": 1894,
+  "ici": 432
+ },
+ "ALANINE AMINOTRANSFERASE INCREASED": {
+  "all": 60619,
+  "ici": 2512
+ },
+ "ANTI-GLOMERULAR BASEMENT MEMBRANE DISEASE": {
+  "all": 79,
+  "ici": 18
+ },
+ "APLASIA PURE RED CELL": {
+  "all": 3394,
+  "ici": 188
+ },
+ "ARTHRITIS BACTERIAL": {
+  "all": 4027,
+  "ici": 49
+ },
+ "ASPARTATE AMINOTRANSFERASE INCREASED": {
+  "all": 52395,
+  "ici": 2401
+ },
+ "ATRIOVENTRICULAR BLOCK": {
+  "all": 7653,
+  "ici": 164
+ },
+ "ATRIOVENTRICULAR BLOCK FIRST DEGREE": {
+  "all": 4303,
+  "ici": 26
+ },
+ "ATRIOVENTRICULAR BLOCK SECOND DEGREE": {
+  "all": 3003,
+  "ici": 37
+ },
+ "AUTOIMMUNE APLASTIC ANAEMIA": {
+  "all": 13,
+  "ici": 5
+ },
+ "AUTOIMMUNE ARTHRITIS": {
+  "all": 153,
+  "ici": 82
+ },
+ "AUTOIMMUNE CHOLANGITIS": {
+  "all": 41,
+  "ici": 30
+ },
+ "AUTOIMMUNE COLITIS": {
+  "all": 635,
+  "ici": 547
+ },
+ "AUTOIMMUNE DERMATITIS": {
+  "all": 147,
+  "ici": 66
+ },
+ "AUTOIMMUNE ENCEPHALOPATHY": {
+  "all": 98,
+  "ici": 35
+ },
+ "AUTOIMMUNE HYPOTHYROIDISM": {
+  "all": 231,
+  "ici": 138
+ },
+ "AUTOIMMUNE LUNG DISEASE": {
+  "all": 114,
+  "ici": 80
+ },
+ "AUTOIMMUNE PANCREATITIS": {
+  "all": 498,
+  "ici": 151
+ },
+ "AUTOIMMUNE PERICARDITIS": {
+  "all": 20,
+  "ici": 12
+ },
+ "AUTOIMMUNE UVEITIS": {
+  "all": 66,
+  "ici": 20
+ },
+ "AXONAL AND DEMYELINATING POLYNEUROPATHY": {
+  "all": 92,
+  "ici": 16
+ },
+ "BLOOD BILIRUBIN INCREASED": {
+  "all": 26733,
+  "ici": 1055
+ },
+ "BLOOD CORTICOTROPHIN DECREASED": {
+  "all": 479,
+  "ici": 211
+ },
+ "BLOOD CREATININE INCREASED": {
+  "all": 64558,
+  "ici": 1656
+ },
+ "BONE MARROW GRANULOMA": {
+  "all": 62,
+  "ici": 3
+ },
+ "CARDIOMYOPATHY": {
+  "all": 14607,
+  "ici": 461
+ },
+ "CHORIORETINITIS": {
+  "all": 635,
+  "ici": 38
+ },
+ "CHORIORETINOPATHY": {
+  "all": 1422,
+  "ici": 24
+ },
+ "CHOROIDITIS": {
+  "all": 371,
+  "ici": 17
+ },
+ "COOMBS DIRECT TEST NEGATIVE": {
+  "all": 6,
+  "ici": 1
+ },
+ "CUTANEOUS LUPUS ERYTHEMATOSUS": {
+  "all": 1935,
+  "ici": 69
+ },
+ "DIABETES INSIPIDUS": {
+  "all": 2391,
+  "ici": 96
+ },
+ "DIABETIC NEPHROPATHY": {
+  "all": 2187,
+  "ici": 25
+ },
+ "DIPLOPIA": {
+  "all": 25631,
+  "ici": 480
+ },
+ "DRUG ERUPTION": {
+  "all": 17396,
+  "ici": 1110
+ },
+ "DRY EYE": {
+  "all": 47815,
+  "ici": 374
+ },
+ "DRY SKIN": {
+  "all": 129815,
+  "ici": 1011
+ },
+ "ECZEMA ASTEATOTIC": {
+  "all": 462,
+  "ici": 26
+ },
+ "ECZEMA NUMMULAR": {
+  "all": 459,
+  "ici": 9
+ },
+ "ENCEPHALITIS VIRAL": {
+  "all": 1194,
+  "ici": 12
+ },
+ "ENTERITIS": {
+  "all": 6271,
+  "ici": 542
+ },
+ "EPISCLERITIS": {
+  "all": 680,
+  "ici": 14
+ },
+ "ERYTHEMA": {
+  "all": 202582,
+  "ici": 1697
+ },
+ "ERYTHEMA MULTIFORME": {
+  "all": 9202,
+  "ici": 687
+ },
+ "ERYTHRODERMIC PSORIASIS": {
+  "all": 806,
+  "ici": 12
+ },
+ "EYELID PTOSIS": {
+  "all": 10038,
+  "ici": 446
+ },
+ "FEBRILE BONE MARROW APLASIA": {
+  "all": 4133,
+  "ici": 328
+ },
+ "FIBRILLARY GLOMERULONEPHRITIS": {
+  "all": 58,
+  "ici": 5
+ },
+ "FOCAL SEGMENTAL GLOMERULOSCLEROSIS": {
+  "all": 1578,
+  "ici": 34
+ },
+ "FULMINANT TYPE 1 DIABETES MELLITUS": {
+  "all": 1007,
+  "ici": 838
+ },
+ "GLOMERULOSCLEROSIS": {
+  "all": 625,
+  "ici": 16
+ },
+ "GUTTATE PSORIASIS": {
+  "all": 814,
+  "ici": 16
+ },
+ "HAND DERMATITIS": {
+  "all": 651,
+  "ici": 29
+ },
+ "HEPATIC CYTOLYSIS": {
+  "all": 12060,
+  "ici": 1331
+ },
+ "HEPATIC ENCEPHALOPATHY": {
+  "all": 9221,
+  "ici": 444
+ },
+ "HEPATIC ENZYME INCREASED": {
+  "all": 67065,
+  "ici": 1488
+ },
+ "HEPATIC FAILURE": {
+  "all": 29825,
+  "ici": 1367
+ },
+ "HEPATIC FUNCTION ABNORMAL": {
+  "all": 36580,
+  "ici": 3744
+ },
+ "HYPERBILIRUBINAEMIA": {
+  "all": 10170,
+  "ici": 370
+ },
+ "IGA NEPHROPATHY": {
+  "all": 1603,
+  "ici": 77
+ },
+ "IMMUNE-MEDIATED ARTHRITIS": {
+  "all": 365,
+  "ici": 350
+ },
+ "IMMUNE-MEDIATED CYSTITIS": {
+  "all": 105,
+  "ici": 103
+ },
+ "IMMUNE-MEDIATED DERMATITIS": {
+  "all": 924,
+  "ici": 891
+ },
+ "IMMUNE-MEDIATED ENCEPHALOPATHY": {
+  "all": 87,
+  "ici": 78
+ },
+ "IMMUNE-MEDIATED HEPATIC DISORDER": {
+  "all": 1887,
+  "ici": 1830
+ },
+ "IMMUNE-MEDIATED HYPOPITUITARISM": {
+  "all": 14,
+  "ici": 14
+ },
+ "IMMUNE-MEDIATED MYELITIS": {
+  "all": 23,
+  "ici": 15
+ },
+ "IMMUNE-MEDIATED NEUROPATHY": {
+  "all": 144,
+  "ici": 119
+ },
+ "IMMUNE-MEDIATED OPTIC NEURITIS": {
+  "all": 26,
+  "ici": 25
+ },
+ "IMMUNE-MEDIATED PANCREATITIS": {
+  "all": 364,
+  "ici": 355
+ },
+ "IMMUNE-MEDIATED PANCYTOPENIA": {
+  "all": 46,
+  "ici": 43
+ },
+ "IMMUNE-MEDIATED PERICARDITIS": {
+  "all": 54,
+  "ici": 52
+ },
+ "IMMUNE-MEDIATED PNEUMONITIS": {
+  "all": 234,
+  "ici": 220
+ },
+ "IMMUNE-MEDIATED SCLERITIS": {
+  "all": 13,
+  "ici": 10
+ },
+ "IMMUNE-MEDIATED VASCULITIS": {
+  "all": 39,
+  "ici": 27
+ },
+ "LEUKODERMA": {
+  "all": 197,
+  "ici": 119
+ },
+ "LICHEN PLANUS": {
+  "all": 2272,
+  "ici": 273
+ },
+ "LICHENIFICATION": {
+  "all": 396,
+  "ici": 25
+ },
+ "LIVER ABSCESS": {
+  "all": 3199,
+  "ici": 225
+ },
+ "LIVER DISORDER": {
+  "all": 43725,
+  "ici": 2311
+ },
+ "LIVER FUNCTION TEST ABNORMAL": {
+  "all": 28879,
+  "ici": 389
+ },
+ "LIVER FUNCTION TEST INCREASED": {
+  "all": 21048,
+  "ici": 696
+ },
+ "LIVER SARCOIDOSIS": {
+  "all": 66,
+  "ici": 3
+ },
+ "MENINGITIS NONINFECTIVE": {
+  "all": 62,
+  "ici": 9
+ },
+ "METASTASES TO LIVER": {
+  "all": 17310,
+  "ici": 742
+ },
+ "MILLER FISHER SYNDROME": {
+  "all": 223,
+  "ici": 43
+ },
+ "MYOCARDITIS-MYOSITIS-MYASTHENIA GRAVIS OVERLAP SYNDROME": {
+  "all": 179,
+  "ici": 174
+ },
+ "MYOPERICARDITIS": {
+  "all": 704,
+  "ici": 47
+ },
+ "NEPHROPATHY": {
+  "all": 9263,
+  "ici": 97
+ },
+ "NEPHROPATHY TOXIC": {
+  "all": 10992,
+  "ici": 430
+ },
+ "NEPHROTIC SYNDROME": {
+  "all": 6761,
+  "ici": 403
+ },
+ "NEURITIS": {
+  "all": 1521,
+  "ici": 60
+ },
+ "NEUROMYELITIS OPTICA SPECTRUM DISORDER": {
+  "all": 1287,
+  "ici": 43
+ },
+ "OEDEMATOUS PANCREATITIS": {
+  "all": 551,
+  "ici": 30
+ },
+ "OPTIC ATROPHY": {
+  "all": 1618,
+  "ici": 13
+ },
+ "OPTIC DISC HAEMORRHAGE": {
+  "all": 224,
+  "ici": 1
+ },
+ "OPTIC NERVE INJURY": {
+  "all": 1137,
+  "ici": 18
+ },
+ "OPTIC PERINEURITIS": {
+  "all": 51,
+  "ici": 9
+ },
+ "ORAL MUCOSAL BLISTERING": {
+  "all": 6314,
+  "ici": 86
+ },
+ "ORAL MUCOSAL ERYTHEMA": {
+  "all": 1525,
+  "ici": 14
+ },
+ "ORBITAL MYOSITIS": {
+  "all": 150,
+  "ici": 39
+ },
+ "PARAESTHESIA": {
+  "all": 155632,
+  "ici": 841
+ },
+ "PERICARDIAL EFFUSION MALIGNANT": {
+  "all": 172,
+  "ici": 29
+ },
+ "PERICARDITIS CONSTRICTIVE": {
+  "all": 410,
+  "ici": 15
+ },
+ "PERICARDITIS MALIGNANT": {
+  "all": 106,
+  "ici": 60
+ },
+ "PERIPHERAL MOTOR NEUROPATHY": {
+  "all": 1379,
+  "ici": 137
+ },
+ "PERIPHERAL SENSORIMOTOR NEUROPATHY": {
+  "all": 1223,
+  "ici": 87
+ },
+ "PLATELET COUNT DECREASED": {
+  "all": 105119,
+  "ici": 3898
+ },
+ "PNEUMOCYSTIS JIROVECII PNEUMONIA": {
+  "all": 9865,
+  "ici": 572
+ },
+ "PNEUMONIA": {
+  "all": 318964,
+  "ici": 6769
+ },
+ "PNEUMONIA ASPIRATION": {
+  "all": 24601,
+  "ici": 901
+ },
+ "PNEUMONIA BACTERIAL": {
+  "all": 9014,
+  "ici": 613
+ },
+ "POLYARTERITIS NODOSA": {
+  "all": 583,
+  "ici": 13
+ },
+ "POLYMYOSITIS": {
+  "all": 1744,
+  "ici": 126
+ },
+ "POLYNEUROPATHY IN MALIGNANT DISEASE": {
+  "all": 81,
+  "ici": 22
+ },
+ "PSORIATIC ARTHROPATHY": {
+  "all": 39691,
+  "ici": 182
+ },
+ "PULMONARY FIBROSIS": {
+  "all": 18866,
+  "ici": 353
+ },
+ "PULMONARY TUMOUR THROMBOTIC MICROANGIOPATHY": {
+  "all": 75,
+  "ici": 10
+ },
+ "RENAL ARTERITIS": {
+  "all": 28,
+  "ici": 3
+ },
+ "RENAL FAILURE": {
+  "all": 132024,
+  "ici": 2319
+ },
+ "RENAL VASCULITIS": {
+  "all": 319,
+  "ici": 20
+ },
+ "SARCOIDOSIS OF LYMPH NODE": {
+  "all": 53,
+  "ici": 8
+ },
+ "SECONDARY ADRENOCORTICAL INSUFFICIENCY": {
+  "all": 1478,
+  "ici": 631
+ },
+ "SERONEGATIVE ARTHRITIS": {
+  "all": 1108,
+  "ici": 65
+ },
+ "SKIN DISCOLOURATION": {
+  "all": 45348,
+  "ici": 280
+ },
+ "SKIN DISORDER": {
+  "all": 32842,
+  "ici": 1268
+ },
+ "SKIN EXFOLIATION": {
+  "all": 82006,
+  "ici": 670
+ },
+ "SKIN LESION": {
+  "all": 26868,
+  "ici": 379
+ },
+ "SKIN TOXICITY": {
+  "all": 5505,
+  "ici": 764
+ },
+ "SKIN ULCER": {
+  "all": 25481,
+  "ici": 484
+ },
+ "SQUAMOUS CELL CARCINOMA OF SKIN": {
+  "all": 5939,
+  "ici": 137
+ },
+ "STEROID DIABETES": {
+  "all": 1440,
+  "ici": 75
+ },
+ "SUSPECTED DRUG-INDUCED LIVER INJURY": {
+  "all": 186,
+  "ici": 24
+ },
+ "SYSTEMIC LUPUS ERYTHEMATOSUS": {
+  "all": 34913,
+  "ici": 121
+ },
+ "TENOSYNOVITIS": {
+  "all": 2729,
+  "ici": 51
+ },
+ "THYROID HORMONES DECREASED": {
+  "all": 785,
+  "ici": 88
+ },
+ "THYROTOXIC CRISIS": {
+  "all": 1116,
+  "ici": 96
+ },
+ "THYROXINE FREE DECREASED": {
+  "all": 549,
+  "ici": 64
+ },
+ "TOXIC SKIN ERUPTION": {
+  "all": 9974,
+  "ici": 404
+ },
+ "TROPONIN ABNORMAL": {
+  "all": 119,
+  "ici": 29
+ },
+ "VIRAL RASH": {
+  "all": 398,
+  "ici": 14
+ },
+ "WARM TYPE HAEMOLYTIC ANAEMIA": {
+  "all": 94,
+  "ici": 10
+ },
+ "WERNICKE^S ENCEPHALOPATHY": {
+  "all": 538,
+  "ici": 19
+ }
+}

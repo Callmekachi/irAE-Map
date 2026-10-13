@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.env
+*.token
+data/raw/icd10cm_2027/
+.DS_Store
+~$*.xlsx
+data/processed/preview/
