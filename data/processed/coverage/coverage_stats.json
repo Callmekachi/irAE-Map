@@ -1,0 +1,27 @@
+{
+ "built": "2026-10-13",
+ "status": "DRAFT",
+ "n_ctcae_terms_assessed": 59,
+ "coverage_counts": {
+  "specific": 52,
+  "nonspecific": 7
+ },
+ "coverage_pct": {
+  "specific": 88.1,
+  "nonspecific": 11.9
+ },
+ "n_new_in_v6": 24,
+ "coverage_counts_new_in_v6": {
+  "specific": 23,
+  "nonspecific": 1
+ },
+ "n_drug_attributable": 23,
+ "terms_without_specific_code": [
+  "Arthritis",
+  "Autoimmune disorder",
+  "Autonomic neuropathy",
+  "Facial nerve disorder",
+  "Immune system disorders - Other, specify",
+  "Vasculitis"
+ ]
+}

@@ -1,13 +1,14 @@
 {
-  "_comment": "Author block for irAE-Map. Every document, citation file, Zenodo record and commit reads from here. [VERIFY] author fills in name spelling, ORCID, email, affiliation, and any co-authors.",
+  "_comment": "Author block for irAE-Map. Every document, citation file, Zenodo record and commit reads from here.",
   "authors": [
     {
-      "name": "[VERIFY: name exactly as it should appear]",
-      "family": "[VERIFY]",
-      "given": "Onyekachi",
-      "orcid": "[VERIFY: 0000-0000-0000-0000]",
-      "email": "[VERIFY]",
-      "affiliation": "Department of Health Outcomes and Biomedical Informatics, University of Florida, Gainesville, FL, USA",
+      "name": "Onyekachi Innocent Ike-Okpe",
+      "family": "Ike-Okpe",
+      "given": "Onyekachi Innocent",
+      "orcid": "0000-0001-7234-7474",
+      "email": "",
+      "affiliation": "Independent Researcher",
+      "github": "Callmekachi",
       "roles": ["Conceptualization", "Methodology", "Data curation", "Validation", "Writing - original draft"],
       "corresponding": true
     }

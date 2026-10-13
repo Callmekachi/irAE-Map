@@ -23,7 +23,7 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "code"))
-from categories import CATEGORIES, COMPANION_CODES, FAERS_EXTRA, FAERS_GENERIC  # noqa: E402
+from categories import CATEGORIES, COMPANION_CODES, FAERS_EXTRA, FAERS_FIRST, FAERS_GENERIC  # noqa: E402
 
 RAW = ROOT / "data" / "raw"
 CUR = ROOT / "data" / "curation"
@@ -287,7 +287,9 @@ def build_faers(of: dict) -> pd.DataFrame:
                 a, b, how = direct[term].get("ici"), direct[term].get("all"), "direct count"
             if not a:
                 continue  # co-reported term with no exact ICI reports
-            props = FAERS_EXTRA.get(c["id"], []) + list(c["faers"].items()) + FAERS_GENERIC
+            # Infectious and tumor terms are checked FIRST so a broad category
+            # pattern (e.g. "MENINGOENCEPHALITIS") can never make them primary.
+            props = FAERS_FIRST + FAERS_EXTRA.get(c["id"], []) + list(c["faers"].items()) + FAERS_GENERIC
             role, conf, why = "review", "", ""
             for pat, prop in props:
                 if re.search(pat, term, re.I):
@@ -308,6 +310,57 @@ def build_faers(of: dict) -> pd.DataFrame:
                              match_basis="openFDA keyword search + category pattern"))
     df = pd.DataFrame(rows)
     return df.sort_values(["category_id", "ici_reports"], ascending=[True, False])
+
+
+# ------------------------------------------------------------ rationales
+GENERIC_WHY = {"core terms", "core", "core term", "specific by construction", "specific", "core/immune terms",
+               "graded term", "symptom", "non-specific", "new in v6.0", "lab terms", "lab term",
+               "explicitly immune-mediated medra term", "infectious", "infectious cause", "descriptive terms",
+               "symptoms", "lab/finding terms", "lab/severity terms", "enzyme terms", "effusion terms",
+               "renal function terms", "biomarker", "conduction", "tumor-related", "aihA subtypes".lower()}
+
+
+def enrich(df: pd.DataFrame) -> pd.DataFrame:
+    """Turn short drafted reasons into full one-sentence rationales that say
+    what the item is and why it has its role. Draft text only; the author
+    accepts or rewrites it."""
+    labels = {c["id"]: c["label"].split(" (")[0].lower() for c in CATEGORIES}
+    out = []
+    for _, r in df.iterrows():
+        role, why = r["proposed_role"], str(r["proposed_rationale"] or "").strip()
+        lab = labels.get(r["category_id"], "this irAE")
+        term = str(r["source_term"]).strip()
+        extra = "" if (why.lower() in GENERIC_WHY or why.lower().rstrip(".") == term.lower()
+                       or not why) else why.rstrip(".")
+        new_v6 = str(r.get("new_in_v6", "")) == "True"
+        if role in ("review", "exclude", "companion") or r["category_id"] == "ALL":
+            out.append(why)
+            continue
+        src = r["source"]
+        if src.startswith("CTCAE"):
+            base = {"primary": f"CTCAE v6.0 term that names {lab} and grades its severity",
+                    "supporting": f"CTCAE v6.0 term that grades a feature of {lab} but is not specific to it",
+                    "lookalike": f"CTCAE v6.0 term for a different condition to rule out before grading {lab}"}[role]
+            if new_v6:
+                base += " (new in v6.0)"
+        elif src.startswith("ICD"):
+            base = {"primary": f"ICD-10-CM code family that names {lab}",
+                    "supporting": f"ICD-10-CM code for a finding consistent with {lab}, not specific to it",
+                    "lookalike": f"ICD-10-CM code for a different condition often confused with {lab}"}[role]
+        else:
+            a_, b_ = r.get("ici_reports"), r.get("all_reports")
+            share = ""
+            try:
+                if a_ and b_ and float(b_) > 0:
+                    share = f"; {int(float(a_)):,} of {int(float(b_)):,} FAERS reports with this term name a checkpoint inhibitor"
+            except ValueError:
+                pass
+            base = {"primary": f"MedDRA reaction term that names {lab}",
+                    "supporting": f"MedDRA reaction term for a finding consistent with {lab}, not specific to it",
+                    "lookalike": f"MedDRA reaction term for a different condition often confused with {lab}"}[role] + share
+        out.append(base + (f". {extra[0].upper() + extra[1:]}." if extra else "."))
+    df["proposed_rationale"] = out
+    return df
 
 
 # ---------------------------------------------------------------- output
@@ -336,9 +389,9 @@ def main():
                 old[s] = None
 
     parts = {
-        "CTCAE": carry_over(build_ctcae(ctcae), old.get("CTCAE")),
-        "ICD-10-CM": carry_over(build_icd(icd), old.get("ICD-10-CM")),
-        "FAERS": carry_over(build_faers(of), old.get("FAERS")),
+        "CTCAE": carry_over(enrich(build_ctcae(ctcae)), old.get("CTCAE")),
+        "ICD-10-CM": carry_over(enrich(build_icd(icd)), old.get("ICD-10-CM")),
+        "FAERS": carry_over(enrich(build_faers(of)), old.get("FAERS")),
     }
     for name, df in parts.items():
         df.to_csv(CUR / f"candidates_{name.lower().replace('-', '')}.csv", index=False)
@@ -346,6 +399,14 @@ def main():
     cats = pd.DataFrame([dict(category_id=c["id"], label=c["label"], organ=c["organ"],
                               lookalikes=c["lookalikes"], author_keep="", author_note="")
                          for c in CATEGORIES])
+    if wb_path.exists():  # carry over category decisions too
+        try:
+            oc = pd.read_excel(wb_path, sheet_name="Categories", dtype=str).fillna("")
+            oc = oc.set_index("category_id")[["author_keep", "author_note"]]
+            for col in ("author_keep", "author_note"):
+                cats[col] = cats["category_id"].map(oc[col]).fillna("")
+        except ValueError:
+            pass
     summary = []
     for name, df in parts.items():
         for cid, g in df.groupby("category_id"):

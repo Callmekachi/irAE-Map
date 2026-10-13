@@ -1,0 +1,33 @@
+irAE-Map 1.0.0 QA report  status: DRAFT  built: 2026-10-13
+
+Plain-language note: the build's own checks. 'PROBLEMS' must be empty before release.
+
+Row counts
+  CTCAE: 137 candidates; 0 undecided (not released); 0 excluded; 137 released
+  ICD-10-CM: 526 candidates; 132 undecided (not released); 10 excluded; 384 released
+  FAERS: 438 candidates; 32 undecided (not released); 9 excluded; 397 released
+  Released mappings: 918 across 36 categories (0 dropped: none)
+  ICD-10-CM families expand to 1939 distinct billable codes
+
+Released mappings by vocabulary and role
+role              companion  lookalike  primary  supporting
+vocabulary                                                 
+CTCAE v6.0                0         14       59          64
+FAERS MedDRA PT           0         68      224         105
+ICD-10-CM FY2027          2        208      142          32
+
+Coverage: categories lacking a primary mapping in a vocabulary
+  none
+
+Terms marked primary in more than one category (8; expected for overlap entities):
+  CTCAE v6.0 | Immune system disorders - Other, specify: 2 categories
+  CTCAE v6.0 | Thyroiditis: 2 categories
+  FAERS MedDRA PT | Autoimmune thyroiditis: 2 categories
+  FAERS MedDRA PT | Immune-mediated thyroiditis: 2 categories
+  FAERS MedDRA PT | Myocarditis-myositis-myasthenia gravis overlap syndrome: 3 categories
+  FAERS MedDRA PT | Thyroiditis: 2 categories
+  ICD-10-CM FY2027 | Drug-induced thyroiditis: 2 categories
+  ICD-10-CM FY2027 | Giant cell arteritis with polymyalgia rheumatica: 2 categories
+
+PROBLEMS
+  none

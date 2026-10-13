@@ -70,8 +70,9 @@ VERIFY POINTS:  a. Category list (keep / merge / drop / add)
 
 LICENSE:        Table and documents CC BY 4.0. Code MIT.
 
-ASSUMPTIONS:    Proceeding under the five defaults sent 2026-10-13 until the
-                author answers. [VERIFY] author confirms.
+DECISIONS:      Author answered 2026-10-13 (data/curation/DECISION_LOG.md):
+                accept all drafted suggestions; E27.1 rated High; defaults
+                for categories, companion codes, drug list; licenses default.
 ```
 
 ## What each line means for you

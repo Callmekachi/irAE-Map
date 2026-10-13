@@ -51,15 +51,23 @@ For each row: find it in the file, read the value, then open the source and conf
 - [ ] Myocarditis: 3,053 ICI, 11,175 all. ___
 - [ ] Hypophysitis: 1,855 ICI, 1,986 all. ___
 
-**Five random released rows** (at release: Claude lists five map_ids chosen by computer, seed 2026). Read each rationale and confirm you agree with it and could defend it. ___
+**Five random released rows** (chosen by computer, seed 2026). Find each `map_id` in `data/processed/irae_map_v1.0.csv`, read the rationale, and confirm you agree with it and could defend it:
+- [ ] IRM-00252, ADRENAL_INSUFFICIENCY, ICD-10-CM E27.49 Other adrenocortical insufficiency: primary, Low. ___
+- [ ] IRM-00900, SARCOID_LIKE, FAERS "Cardiac sarcoidosis": primary, High. ___
+- [ ] IRM-00416, DERM_INFLAMMATORY, CTCAE "Lichenoid dermatitis" (new in v6.0): primary, High. ___
+- [ ] IRM-00544, ARTHRITIS, ICD-10-CM B42* Sporotrichosis: look-alike, High. ___
+- [ ] IRM-00389, NEPHRITIS, FAERS "Blood creatinine increased": supporting, Moderate. ___
+
+**Corrections made after your blanket acceptance** (listed in `data/curation/DECISION_LOG.md`, second section): 13 suggestions changed, mostly infection or chemotherapy terms that had been wrongly marked primary, and all rationales rewritten as full sentences.
+- [ ] I have read the corrections and agree with them. ___
 
 ## Part 4: Your decisions (10 min)
 
-- [ ] Category list final (Categories tab): including whether to add CHOLANGITIS and GASTRITIS (FAERS shows 330 and 182 reports of the immune-mediated terms). Your choice: ___
-- [ ] Companion-code rule: T45.AX5- from 2024-10-01, T45.1X5- before. Agree? ___
-- [ ] Symptom codes (R-codes) appear only as "supporting", never "primary". Agree? ___
-- [ ] The 13-drug list in `code/categories.py`. Agree? ___
-- [ ] Confidence scale High / Moderate / Low as defined in the codebook. Agree? ___
+- [x] Category list: keep the 36, no CHOLANGITIS or GASTRITIS in v1.0 (decided 2026-10-13).
+- [x] Companion-code rule: T45.AX5- from 2024-10-01, T45.1X5- before (decided 2026-10-13).
+- [x] Symptom codes supporting only (decided 2026-10-13).
+- [x] 13-drug list (decided 2026-10-13).
+- [ ] Confidence scale stays High / Moderate / Low, and your "high" applied to E27.1 only. Correct? ___
 
 ## Part 5: Before it goes public (15 min)
 

@@ -647,10 +647,10 @@ CATEGORIES = [
         icd_prefix=["G04", "G05", "A86", "B004", "G92", "G934"],
         icd_regex=r"encephalitis|encephalomyelitis|encephalopathy",
         icd={"G0481": P("primary", "High", "Other encephalitis and encephalomyelitis (includes autoimmune encephalitis)"),
-             "G0489": P("primary", "Moderate", "Other myelitis/encephalitis"),
+             "G0489": P("lookalike", "Moderate", "Other myelitis; belongs to MYELITIS"),
              "G0490": P("primary", "Moderate", "Encephalitis and encephalomyelitis, unspecified"),
              "G0400": P("primary", "Moderate", "Acute disseminated encephalitis, unspecified"),
-             "G0402": P("primary", "Moderate", "Postimmunization ADEM; check index"),
+             "G0402": P("lookalike", "High", "Postimmunization (vaccine) acute disseminated encephalomyelitis"),
              "A86": P("lookalike", "High", "Unspecified viral encephalitis"),
              "B004": P("lookalike", "High", "Herpesviral encephalitis"),
              "G920": P("lookalike", "High", "ICANS (CAR-T, bispecifics)"),
@@ -672,6 +672,7 @@ CATEGORIES = [
         icd_regex=r"\b(transverse )?myelitis\b",
         icd={"G373": P("primary", "High", "Acute transverse myelitis in demyelinating disease"),
              "G0491": P("primary", "Moderate", "Myelitis, unspecified"),
+             "G0489": P("primary", "Moderate", "Other myelitis"),
              "G952": P("lookalike", "High", "Cord compression")},
         faers_kw=["myelitis"],
         faers_regex=r"MYELITIS",
@@ -935,3 +936,25 @@ FAERS_GENERIC = [
     (r"INFECTI|BACTERIAL|STREPTOCOCC|PNEUMOCYSTIS|VIRAL|FUNGAL|ABSCESS", P("lookalike", "High", "Infectious cause")),
     (r"METASTAS|CARCINOMA|MALIGNANT|NEOPLASM", P("lookalike", "High", "Tumor-related")),
 ]
+
+# Checked before everything else (added 2026-10-13 after a spot check found
+# "Meningoencephalitis bacterial" suggested as primary).
+FAERS_FIRST = [
+    (r"(?<!NON)INFECT|BACTERIAL|VIRAL|HERPE|ZOSTER|FUNGAL|TUBERCUL|PNEUMOCYST|STREPTOCOC|STAPHYLOCOC|CLOSTRIDI|CYTOMEGALO|SEPSIS|ABSCESS",
+     P("lookalike", "High", "Infectious cause; exclude infection before attributing to an ICI")),
+    (r"METASTAS|MALIGNANT|CARCINOMA|NEOPLASM|TUMOUR|TUMOR", P("lookalike", "High", "Tumor-related")),
+    (r"EUGLYCAEMIC", P("lookalike", "High", "Euglycemic ketoacidosis is typical of SGLT2 inhibitors, not ICI diabetes")),
+]
+
+# Clinical corrections after review of every primary FAERS term (2026-10-13).
+_FIX = {
+    "DIABETES": [(r"DIABETES INSIPIDUS", P("lookalike", "High", "Pituitary (vasopressin) disorder, not insulin-deficient diabetes; see HYPOPHYSITIS")),
+                 (r"INADEQUATE CONTROL", P("supporting", "Low", "Describes poor control of any diabetes, mostly type 2"))],
+    "OPTIC_NEURITIS": [(r"TOXIC OPTIC NEUROPATHY", P("lookalike", "Moderate", "Toxic optic neuropathy from other drugs or toxins"))],
+    "DERM_SCAR": [(r"PALMOPLANTAR PUSTULOSIS", P("lookalike", "Moderate", "Psoriasis variant, not a severe cutaneous adverse reaction"))],
+    "APLASTIC_ANEMIA": [(r"FEBRILE BONE MARROW APLASIA", P("lookalike", "High", "Chemotherapy-induced aplasia with fever"))],
+    "AIHA": [(r"^HAEMOLYSIS$", P("supporting", "Moderate", "Finding of hemolysis without the autoimmune mechanism"))],
+    "DERM_INFLAMMATORY": [(r"LICHENOID KERATOSIS", P("supporting", "Low", "Solitary benign lichenoid lesion rather than a dermatitis"))],
+}
+for _k, _v in _FIX.items():
+    FAERS_EXTRA[_k] = _v + FAERS_EXTRA.get(_k, [])

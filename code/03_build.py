@@ -67,8 +67,11 @@ def main():
         cats["author_keep"] = "keep"
     keep = set(cats.loc[cats["author_keep"].str.lower().isin(["keep", "merge"]), "category_id"]) | {"ALL"}
     dropped_cats = sorted(set(cats["category_id"]) - keep)
+    undecided_cats = sorted(cats.loc[~cats["author_keep"].str.lower().isin(["keep", "merge", "drop"]), "category_id"])
 
     qa, problems = [], []
+    if undecided_cats:
+        problems.append(f"Categories: {len(undecided_cats)} with no keep/merge/drop decision (treated as dropped): {undecided_cats[:8]}")
     rows = []
     for name in ("CTCAE", "ICD-10-CM", "FAERS"):
         df = sheets[name]
@@ -187,6 +190,9 @@ def main():
         n_faers_terms=int(final.loc[final.vocabulary == "FAERS MedDRA PT", "term"].nunique()),
         n_terms_primary_in_multiple_categories=int(len(multi)),
         n_problems=len(problems),
+        n_accepted_suggestion=int((final.decision_type == "author accepted suggestion").sum()),
+        n_author_set=int((final.decision_type == "author decision").sum()),
+        n_undecided_not_released=sum(int(q.split("; ")[1].split()[0]) for q in qa),
     )
     of = json.loads((ROOT / "data" / "raw" / "openfda_reactions.json").read_text())
     stats.update(faers_ici_reports_total=of["ici_report_total"], faers_all_reports_total=of["all_report_total"],

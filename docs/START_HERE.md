@@ -46,7 +46,7 @@ This is the coding layer under your OMOP-based irAE data model: it gives the irA
 
 ## Who decides what
 
-Claude writes the code and proposes candidate mappings with a suggested reason. **You make every mapping decision** (include, exclude, confidence) and check every one. Nothing is marked final until you have.
+Claude writes the code and proposes candidate mappings with a suggested reason. You decide them. For v1.0 you accepted the suggestions as a group and changed E27.1; the documents say so plainly, and each row records how it was decided.
 
 ## What you need to do
 
@@ -67,4 +67,4 @@ Claude writes the code and proposes candidate mappings with a suggested reason. 
 5. **Codebook and rationale document.** Every number in it comes straight from the data.
 6. **Ready for your final check.** You verify, then we publish v1.0 with a DOI.
 
-*You are here: steps 1 and 2 done. Step 3 (your review) is next.*
+*You are here: steps 1 to 5 done. Step 6 (your final check) is next.*

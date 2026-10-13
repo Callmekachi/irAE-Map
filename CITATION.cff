@@ -5,12 +5,12 @@ title: "irAE-Map: a clinician-curated crosswalk of immune-related adverse events
 version: "1.0.0"
 date-released: "[VERIFY: release date]"
 authors:
-  - family-names: "[VERIFY]"
-    given-names: "Onyekachi"
-    orcid: "https://orcid.org/[VERIFY]"
-    affiliation: "Department of Health Outcomes and Biomedical Informatics, University of Florida"
+  - family-names: "Ike-Okpe"
+    given-names: "Onyekachi Innocent"
+    orcid: "https://orcid.org/0000-0001-7234-7474"
+    affiliation: "Independent Researcher"
 license: CC-BY-4.0
-repository-code: "https://github.com/[VERIFY]/irae-map"
+repository-code: "https://github.com/Callmekachi/irae-map"
 doi: "[VERIFY: 10.5281/zenodo.pending]"
 keywords:
   - immune-related adverse events
