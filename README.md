@@ -1,6 +1,6 @@
 # irAE-Map
 
-**Status:** DRAFT v1.0.0 (not yet author-verified; do not cite) | **Maintainer:** Onyekachi Innocent Ike-Okpe, [ORCID 0000-0001-7234-7474](https://orcid.org/0000-0001-7234-7474) | **License:** table and documents CC BY 4.0, code MIT
+**Status:** released v1.0.0 (2026-10-13) | **Maintainer:** Onyekachi Innocent Ike-Okpe, [ORCID 0000-0001-7234-7474](https://orcid.org/0000-0001-7234-7474) | **License:** table and documents CC BY 4.0, code MIT
 
 **In plain terms:** Immunotherapy drugs can make the immune system attack healthy organs. The same side effect is written down three different ways: cancer trials use CTCAE terms, hospitals use ICD-10-CM codes, and the FDA's safety database uses MedDRA reaction terms. irAE-Map is a free, clinician-checked table that links all three for each kind of immunotherapy side effect, with a reason, a confidence rating, and the diagnoses most often confused with it.
 
@@ -44,7 +44,7 @@ A stranger should be able to run these from this README alone and reproduce `dat
 
 ## Headline numbers
 
-Not yet available: the table is published only after the author has decided every row. The build writes all numbers to `data/processed/stats.json` and `data/processed/qa_report.txt`.
+Version 1.0.0 links 36 irAE categories through 918 mappings: 137 to CTCAE v6.0 terms (29 of the 134 distinct terms are new in v6.0), 384 to ICD-10-CM code families covering 1,939 billable codes, and 397 to FAERS reaction terms, drawn from 290,091 FAERS reports naming a checkpoint inhibitor. All numbers come from `data/processed/stats.json`; build checks are in `data/processed/qa_report.txt`.
 
 ## Using the table
 
@@ -60,4 +60,6 @@ Claude (Anthropic) wrote the code, the candidate search rules and the draft sugg
 
 ## Citation
 
-See `CITATION.cff`. DOI: [pending first release]
+Ike-Okpe, O. I. (2026). irAE-Map v1.0.0: a clinician-curated crosswalk of immune-related adverse events to CTCAE v6.0, ICD-10-CM FY2027 and FAERS reaction terms [Data set]. Zenodo. https://doi.org/10.5281/zenodo.23351502
+
+Codebook and mapping rationale: https://doi.org/10.5281/zenodo.23351504. Machine-readable citation: `CITATION.cff`.

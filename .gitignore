@@ -6,3 +6,6 @@ data/raw/icd10cm_2027/
 .DS_Store
 ~$*.xlsx
 data/processed/preview/
+data/processed/coverage/
+report/*.pdf.tmp
+release/*.zip

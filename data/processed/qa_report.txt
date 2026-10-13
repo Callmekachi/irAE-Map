@@ -1,4 +1,4 @@
-irAE-Map 1.0.0 QA report  status: DRAFT  built: 2026-10-13
+irAE-Map 1.0.0 QA report  status: released  built: 2026-10-13
 
 Plain-language note: the build's own checks. 'PROBLEMS' must be empty before release.
 

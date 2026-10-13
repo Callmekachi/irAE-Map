@@ -24,10 +24,11 @@
 | `code` | CTCAE: MedDRA 28.0 LLT code as printed in CTCAE v6.0. ICD-10-CM: code family with a dot; a trailing `*` means "this code and its billable children listed in the expanded file". FAERS: blank (MedDRA PT codes are not redistributed; see LIMITATIONS 9) | Source files |
 | `term` | CTCAE term; ICD-10-CM long description of the family's parent code; FAERS MedDRA preferred term in sentence case | Source files, verbatim except FAERS case |
 | `role` | `primary`, `supporting`, `lookalike`, or `companion` (definitions below) | Author decision |
-| `confidence` | `High`, `Moderate`, or `Low` (definitions below); may be blank for look-alikes | Author decision |
-| `rationale` | One-sentence clinical reason for the role | Author's words, or Claude's draft that the author accepted verbatim (see `decision_type`) |
+| `confidence` | The author's confidence that the row's role is correct (including that a look-alike is a look-alike). `High` for every released row in v1.0 | Author decision, 2026-10-13 |
+| `specificity` | How specific the term or code is to the irAE: `High`, `Moderate`, or `Low` (definitions below); may be blank for look-alikes. **Filter on this column, not on confidence, when selecting codes** | Drafted, accepted by the author |
+| `rationale` | One- or two-sentence clinical reason for the role | Author's words, or Claude's draft that the author accepted (see `decision_type`) |
 | `lookalike_note` | Diagnoses easily confused with this row, where the author added one | Author |
-| `decision_type` | `author decision` (author set role, confidence and rationale) or `author accepted suggestion` (author reviewed and accepted the drafted role, confidence and rationale unchanged) | Review workbook |
+| `decision_type` | `author decision` (author set the row individually) or `author accepted suggestion` (author accepted the drafted role, specificity and rationale as part of a group decision; see `data/curation/DECISION_LOG.md`) | Review workbook |
 | `decided_by`, `decided_on` | Reviewer initials and date (YYYY-MM-DD) | Review workbook |
 | `icd_billable_codes_in_family` | Number of billable FY2027 codes in the family | ICD-10-CM order file |
 | `ctcae_new_in_v6` | `True` if NCI lists the term as an addition in v6.0 | CTCAE "CTCAE v6.0 Change" column = "Addition: Term" |
@@ -36,7 +37,7 @@
 | `faers_all_reports` | Number of FAERS reports, any drug, that include this term | openFDA |
 | `faers_ici_prr` | `(a / N_ici) / ((b - a) / (N_all - N_ici))` with a = `faers_ici_reports`, b = `faers_all_reports`, N_ici and N_all from `stats.json`. Above 1: over-represented in ICI reports. Descriptive only | Computed |
 | `ctcae_grade_1` ... `ctcae_grade_5` | CTCAE v6.0 grade definitions, verbatim; `-` where NCI defines no grade | CTCAE v6.0 |
-| `status` | `DRAFT`, `released`, or `PREVIEW (not author-decided)` | Build flag |
+| `status` | `released` in a published version (`draft (not verified)` or `preview (not author-decided)` in working builds) | Build flag |
 | `irae_map_version` | Semantic version of the release | Build |
 
 ## `irae_map_icd10cm_expanded.csv`
@@ -47,7 +48,7 @@
 | `irae_category_id` | Category |
 | `icd10cm_code` | One billable FY2027 code, with dot |
 | `code_family` | The family it belongs to (main table `code`) |
-| `role`, `confidence` | Inherited from the family's mapping |
+| `role`, `confidence`, `specificity` | Inherited from the family's mapping |
 | `status`, `irae_map_version` | As above |
 
 ## Roles
@@ -57,7 +58,7 @@
 - **lookalike**: a different condition often confused with this one, listed so analysts can exclude it on purpose. Never count a look-alike as the irAE.
 - **companion**: an ICD-10-CM drug-cause code (T45.AX5- from 2024-10-01; T45.1X5- before) that should accompany a condition code. Category `ALL`.
 
-## Confidence
+## Specificity
 
 - **High**: the term or code names the condition and is used for it in practice.
 - **Moderate**: right organ and process, but also used for non-immune causes.
@@ -73,4 +74,4 @@ Counts come from the openFDA drug adverse event endpoint (FAERS data last update
 
 ## How to use the table (example)
 
-To find hospital encounters coded as ICI colitis after 2024-10-01: select `icd10cm_code` from the expanded file where `irae_category_id = COLITIS` and `role = primary`; require a code from category `ALL`, `role = companion` (T45.AX5-) on the same encounter; exclude encounters with a `COLITIS` look-alike code (e.g., A04.7- C. difficile). Choose `confidence` thresholds to trade sensitivity for specificity.
+To find hospital encounters coded as ICI colitis after 2024-10-01: select `icd10cm_code` from the expanded file where `irae_category_id = COLITIS` and `role = primary`; require a code from category `ALL`, `role = companion` (T45.AX5-) on the same encounter; exclude encounters with a `COLITIS` look-alike code (e.g., A04.7- C. difficile). Choose a `specificity` threshold (High only, or High and Moderate) to trade sensitivity for specificity.

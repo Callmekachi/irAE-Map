@@ -6,10 +6,10 @@ and writes the published table to data/processed/, plus a quality report
 (qa_report.txt) and a numbers file (stats.json) that every document reads from.
 Rows you have not decided are NOT published. Rows you marked exclude are dropped.
 
-  python code/03_build.py              build from your decisions (DRAFT until --final)
+  python code/03_build.py              build from your decisions (draft until --final)
   python code/03_build.py --final      same, without the DRAFT status (after the gate)
   python code/03_build.py --preview    build from Claude's SUGGESTIONS instead, into
-                                       data/processed/preview/, stamped PREVIEW.
+                                       data/processed/preview/, stamped preview.
                                        For testing the pipeline only; never released.
 """
 
@@ -58,7 +58,7 @@ def main():
     a = ap.parse_args()
     out = ROOT / "data" / "processed" / ("preview" if a.preview else "")
     out.mkdir(parents=True, exist_ok=True)
-    status = "PREVIEW (not author-decided)" if a.preview else ("released" if a.final else "DRAFT")
+    status = "preview (not author-decided)" if a.preview else ("released" if a.final else "draft (not verified)")
 
     wb = CUR / "irAE-Map_review.xlsx"
     sheets = {s: pd.read_excel(wb, sheet_name=s, dtype=str) for s in ("Categories", "CTCAE", "ICD-10-CM", "FAERS")}
@@ -91,7 +91,7 @@ def main():
         d = d[d["final_role"].isin(ROLES) & d["category_id"].isin(keep)]
         need_conf = d[(d["final_role"] != "lookalike") & ~d["final_confidence"].isin(CONF)]
         if len(need_conf):
-            problems.append(f"{name}: {len(need_conf)} released rows missing a valid confidence (e.g., {need_conf.source_id.head(3).tolist()})")
+            problems.append(f"{name}: {len(need_conf)} released rows missing a valid specificity (e.g., {need_conf.source_id.head(3).tolist()})")
         need_why = d[d["final_rationale"].str.strip() == ""]
         if len(need_why):
             problems.append(f"{name}: {len(need_why)} released rows missing a rationale (e.g., {need_why.source_id.head(3).tolist()})")
@@ -109,6 +109,10 @@ def main():
                 "ici_reports", "all_reports", "ici_prr", "new_in_v6", "new_in_fy2027"):
         if col not in t:
             t[col] = ""
+    # Author decision 2026-10-13 (option 1): confidence = the author's confidence
+    # that the row's role is correct, High for every released row; the graded
+    # High/Moderate/Low rating is published as `specificity`.
+    t["confidence"] = "High"
     t["code"] = t["source_id"]
     t.loc[t["vocabulary"] == "FAERS MedDRA PT", "code"] = ""  # PT names only; no MedDRA PT codes (licensing)
     t["status"] = status
@@ -121,13 +125,13 @@ def main():
     t["map_id"] = [f"IRM-{i:05d}" for i in range(1, len(t) + 1)]
 
     main_cols = ["map_id", "category_id", "category_label", "organ", "vocabulary", "code", "source_term",
-                 "final_role", "final_confidence", "final_rationale", "author_lookalike_note",
+                 "final_role", "confidence", "final_confidence", "final_rationale", "author_lookalike_note",
                  "decision_type", "decided_by", "decided_on",
                  "n_billable_codes", "new_in_v6", "new_in_fy2027", "ici_reports", "all_reports", "ici_prr",
                  "grade_1", "grade_2", "grade_3", "grade_4", "grade_5", "status", "irae_map_version"]
     final = t[main_cols].rename(columns={
         "category_id": "irae_category_id", "category_label": "irae_category", "organ": "organ_system",
-        "source_term": "term", "final_role": "role", "final_confidence": "confidence",
+        "source_term": "term", "final_role": "role", "final_confidence": "specificity",
         "final_rationale": "rationale", "author_lookalike_note": "lookalike_note",
         "n_billable_codes": "icd_billable_codes_in_family", "new_in_v6": "ctcae_new_in_v6",
         "new_in_fy2027": "icd_new_in_fy2027", "ici_reports": "faers_ici_reports",
@@ -143,7 +147,7 @@ def main():
         for code in str(r["billable_codes"]).split(";"):
             if code:
                 exp.append(dict(map_id=r["map_id"], irae_category_id=r["category_id"], icd10cm_code=code,
-                                code_family=r["source_id"], role=r["final_role"], confidence=r["final_confidence"],
+                                code_family=r["source_id"], role=r["final_role"], confidence="High", specificity=r["final_confidence"],
                                 status=status, irae_map_version=VERSION))
     exp = pd.DataFrame(exp)
     exp.to_csv(out / "irae_map_icd10cm_expanded.csv", index=False)
@@ -185,6 +189,7 @@ def main():
         by_vocabulary=final.vocabulary.value_counts().to_dict(),
         by_vocabulary_role={v: by.loc[v].to_dict() for v in by.index},
         by_confidence=final.confidence.value_counts().to_dict(),
+        by_specificity=final.specificity.value_counts().to_dict(),
         n_ctcae_terms=int(final.loc[final.vocabulary == "CTCAE v6.0", "term"].nunique()),
         n_ctcae_terms_new_in_v6=int(final.loc[(final.vocabulary == "CTCAE v6.0") & (final.ctcae_new_in_v6.astype(str) == "True"), "term"].nunique()),
         n_faers_terms=int(final.loc[final.vocabulary == "FAERS MedDRA PT", "term"].nunique()),

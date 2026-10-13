@@ -6,7 +6,7 @@
 
 2. **The drug-cause code changed on 2024-10-01.** T45.AX5- (adverse effect of immune checkpoint inhibitors and immunostimulant drugs) entered ICD-10-CM in FY2025. Before that date, ICI adverse effects were coded with T45.1X5-, which also covers chemotherapy and immunosuppressants. Analyses spanning that date must use both, and T45.1X5- alone cannot separate ICI from chemotherapy toxicity. T45.AX5- also covers "immunostimulant drugs" beyond checkpoint inhibitors.
 
-3. **Many codes are shared with non-immune causes.** Codes rated Moderate or Low confidence (for example E03.9 hypothyroidism, unspecified; K52.9 noninfective colitis, unspecified) are common in patients who never received immunotherapy. Their usefulness depends on the analyst restricting to treated patients and a time window.
+3. **Many codes are shared with non-immune causes.** Codes rated Moderate or Low specificity (for example E03.9 hypothyroidism, unspecified; K52.9 noninfective colitis, unspecified) are common in patients who never received immunotherapy. Their usefulness depends on the analyst restricting to treated patients and a time window.
 
 4. **FAERS counts are reports, not patients or incidence.** FAERS is a spontaneous reporting system. Counts reflect reporting behavior, duplicates, stimulated reporting after publications and label changes, and missing data. They cannot estimate how often an irAE happens. `ici_prr` compares how often a term appears in reports naming an ICI versus all other reports; it is a descriptive over-representation measure, not a validated disproportionality signal (no confidence interval, no stratification, no deduplication).
 
@@ -18,7 +18,7 @@
 
 8. **Category boundaries are a clinical judgment.** The categories follow the ASCO 2021 irAE guideline's organ groups, with additions. Other groupings (for example combining thyroid categories, or separating cholangitis from hepatitis) are equally defensible. Some terms legitimately map to more than one category (thyroiditis; the myocarditis-myositis-myasthenia overlap).
 
-9. **MedDRA licensing.** CTCAE v6.0 terms and FAERS reaction terms are MedDRA terms. MedDRA is maintained by ICH and licensed through MSSO. irAE-Map republishes term names and the CTCAE LLT codes exactly as they appear in NCI's and FDA's free public releases, and does not redistribute the MedDRA hierarchy or MedDRA PT codes. [VERIFY] Users who need MedDRA codes or hierarchy should obtain a MedDRA license.
+9. **MedDRA licensing.** CTCAE v6.0 terms and FAERS reaction terms are MedDRA terms. MedDRA is maintained by ICH and licensed through MSSO. irAE-Map republishes term names and the CTCAE LLT codes exactly as they appear in NCI's and FDA's free public releases, and does not redistribute the MedDRA hierarchy or MedDRA PT codes. Users who need MedDRA codes or hierarchy should obtain a MedDRA license.
 
 10. **ICD-10-CM is US-specific and versioned.** Codes are valid for FY2027 (2026-10-01 to 2027-09-30). Codes added, deleted or revised in later releases require a new irAE-Map version (v2.0 planned for FY2028). Other countries' ICD-10 modifications differ.
 

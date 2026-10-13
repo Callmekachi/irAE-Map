@@ -16,7 +16,7 @@ SOURCES:        1. NCI CTCAE v6.0 spreadsheet (MedDRA 28.0), errata 2026-01-20.
                    https://dctd.cancer.gov/research/ctep-trials/trial-development/ctcae-v6.0.xlsx
                    Freely distributed by NCI. Its terms are MedDRA terms;
                    MedDRA is licensed by ICH/MSSO (see LIMITATIONS 9).
-                   [VERIFY] Accessed 2026-10-13.
+                   Accessed 2026-10-13.
                 2. CDC/NCHS ICD-10-CM FY2027 code descriptions and addenda,
                    effective 2026-10-01.
                    https://ftp.cdc.gov/pub/Health_Statistics/NCHS/Publications/ICD10CM/2027/
@@ -32,7 +32,8 @@ UNIT:           One mapping = (irAE category, source vocabulary, source code
                 code.
 
 MEASURES:       role         primary / supporting / lookalike / companion
-                confidence   High / Moderate / Low
+                confidence   author's confidence the role is correct (High, all rows)
+                specificity  High / Moderate / Low
                 rationale    one sentence, author's words or accepted draft
                 lookalike    note on confusable diagnoses
                 ici_reports  FAERS reports naming any of 13 ICIs with the term

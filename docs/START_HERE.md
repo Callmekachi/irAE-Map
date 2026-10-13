@@ -67,4 +67,4 @@ Claude writes the code and proposes candidate mappings with a suggested reason. 
 5. **Codebook and rationale document.** Every number in it comes straight from the data.
 6. **Ready for your final check.** You verify, then we publish v1.0 with a DOI.
 
-*You are here: steps 1 to 5 done. Step 6 (your final check) is next.*
+*You are here: all six steps done. v1.0 is being published.*

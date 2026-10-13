@@ -3,7 +3,7 @@ message: "If you use irAE-Map, please cite it as below."
 type: dataset
 title: "irAE-Map: a clinician-curated crosswalk of immune-related adverse events to CTCAE v6.0, ICD-10-CM and FAERS reaction terms"
 version: "1.0.0"
-date-released: "[VERIFY: release date]"
+date-released: "2026-10-13"
 authors:
   - family-names: "Ike-Okpe"
     given-names: "Onyekachi Innocent"
@@ -11,7 +11,7 @@ authors:
     affiliation: "Independent Researcher"
 license: CC-BY-4.0
 repository-code: "https://github.com/Callmekachi/irae-map"
-doi: "[VERIFY: 10.5281/zenodo.pending]"
+doi: "10.5281/zenodo.23351502"
 keywords:
   - immune-related adverse events
   - immune checkpoint inhibitors

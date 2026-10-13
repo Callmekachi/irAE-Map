@@ -8,11 +8,11 @@ plus coverage_stats.json. This is the derived "coverage analysis dataset"
 (target release April 2027, own DOI). Every number in any write-up comes from
 coverage_stats.json.
 
-Definitions (provisional, [VERIFY] author confirms):
+Definitions (provisional; the author confirms them before the April 2027 release):
   coverage_level, per CTCAE term within its irAE category:
     specific      the category has at least one ICD-10-CM family the author
-                  rated primary with High confidence
-    nonspecific   primary ICD-10-CM families exist, but none rated High
+                  rated primary with High specificity
+    nonspecific   primary ICD-10-CM families exist, but none rated High specificity
     none          no primary ICD-10-CM family in the category
   drug_attributable_code: at least one primary family's description says the
     condition is drug-induced (e.g., E06.4 Drug-induced thyroiditis), so the
@@ -21,7 +21,7 @@ Definitions (provisional, [VERIFY] author confirms):
 Version 0 limitation: coverage is judged at the CATEGORY level (any High primary
 ICD-10-CM family in the term's category). For the April 2027 release the author
 names, per CTCAE term, the single best ICD-10-CM code (term-level link), and
-coverage is recomputed from that. [VERIFY]
+coverage is recomputed from that.
 
 Only CTCAE terms with role primary are assessed (supporting terms such as
 "Diarrhea" grade a category but do not define it).
@@ -59,7 +59,7 @@ def main():
     rows = []
     for _, r in ct.iterrows():
         g = icd[icd.irae_category_id == r.irae_category_id]
-        high = g[g.confidence == "High"]
+        high = g[g.specificity == "High"]
         level = "specific" if len(high) else ("nonspecific" if len(g) else "none")
         drug = g[g.term.apply(lambda x: bool(DRUG.search(x)))]
         f = fa[fa.irae_category_id == r.irae_category_id]

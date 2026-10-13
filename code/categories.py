@@ -11,7 +11,7 @@ Category list follows the organ groupings of the ASCO 2021 guideline on
 management of irAEs in patients treated with immune checkpoint inhibitor
 therapy (Schneider et al., J Clin Oncol 2021;39:4073-4126), with additions
 where CTCAE v6.0 or the literature gives a distinct entity (vitiligo,
-sarcoid-like reaction, HLH). [VERIFY] author confirms category list.
+sarcoid-like reaction, HLH). Category list confirmed by the author 2026-10-13.
 
 Roles
   primary     names the condition itself; enough on its own to identify it
@@ -23,7 +23,7 @@ Roles
   review      found by a search rule, no suggestion; author decides
   exclude     found by a search rule, not relevant (author marks)
 
-Confidence (proposed default scale, [VERIFY] author confirms)
+Specificity (published as `specificity`; `confidence` is the author's confidence in the role)
   High      term/code names the condition and is used for it in practice
   Moderate  right organ and process, but also used for non-immune causes
   Low       supporting or non-specific
@@ -856,7 +856,7 @@ COMPANION_CODES = [
          note="Poisoning (overdose), not an adverse effect at therapeutic dose; listed so analysts do not confuse it."),
 ]
 
-# The 13 ICIs used for the openFDA pull. [VERIFY] author confirms.
+# The 13 ICIs used for the openFDA pull (confirmed by the author 2026-10-13).
 ICI_DRUGS = [
     "PEMBROLIZUMAB", "NIVOLUMAB", "CEMIPLIMAB", "DOSTARLIMAB", "RETIFANLIMAB",
     "TORIPALIMAB", "TISLELIZUMAB", "ATEZOLIZUMAB", "DURVALUMAB", "AVELUMAB",

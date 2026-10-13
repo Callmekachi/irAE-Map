@@ -1,6 +1,6 @@
 {
  "version": "1.0.0",
- "status": "DRAFT",
+ "status": "released",
  "built": "2026-10-13",
  "n_categories": 36,
  "n_categories_dropped": 0,
@@ -33,6 +33,9 @@
   }
  },
  "by_confidence": {
+  "High": 918
+ },
+ "by_specificity": {
   "High": 487,
   "Moderate": 294,
   "Low": 136,

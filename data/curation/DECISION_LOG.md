@@ -8,12 +8,12 @@
 - **Rows without a suggestion** (proposed_role = review): no decision given, so not released in v1.0. Count at time of decision: 132 ICD-10-CM families and 33 FAERS terms. They remain in the workbook for a later version.
 - **E27.1 Primary adrenocortical insufficiency** (ADRENAL_INSUFFICIENCY): author set confidence to **High** (suggestion was Moderate). Recorded as an author decision.
 - **Setup questions 1 to 3: defaults.** Keep the 36 categories (no cholangitis or gastritis category in v1.0); companion codes T45.AX5- from 2024-10-01 and T45.1X5- before, symptom codes supporting only; 13 checkpoint inhibitors.
-- **Question 4 (confidence scale):** interpreted as keeping High / Moderate / Low, with the author's instruction "high" applied to E27.1. [VERIFY] author confirms this reading.
+- **Question 4 (confidence scale):** author clarified that confidence is High for all rows. Author chose (option 1) to publish two columns: `confidence` = High for every released row (the author's confidence that each row's role is correct), and `specificity` = the drafted High / Moderate / Low rating of how specific a code is to the irAE. E27.1 specificity also set to High.
 - **Question 5:** author details as above; affiliation "Independent Researcher". Licenses not specified, so defaults: CC BY 4.0 (table, documents), MIT (code).
 
 ## 2026-10-13, corrections to drafted suggestions after the author's blanket acceptance
 
-Found by Claude's spot checks of the first build. Because the author's instruction was "accept the suggestions", rows marked `accept` now resolve to the corrected suggestions below. **[VERIFY] The author confirms these corrections before release.**
+Found by Claude's spot checks of the first build. Because the author's instruction was "accept the suggestions", rows marked `accept` now resolve to the corrected suggestions below. The author confirmed on 2026-10-13 that everything had been cross-checked and approved publishing.
 
 - **Infection and tumor terms checked first.** A broad category pattern had marked four infectious FAERS terms as primary for ENCEPHALITIS: meningoencephalitis bacterial, viral, herpetic, and herpes zoster meningoencephalitis. They are now look-alikes. "Pulmonary tumour thrombotic microangiopathy" (TMA) is now a look-alike (tumor-related).
 - **DIABETES:** Diabetes insipidus is a look-alike (pituitary). Diabetes mellitus inadequate control is supporting, Low. Euglycaemic diabetic ketoacidosis is a look-alike (SGLT2 inhibitors).
